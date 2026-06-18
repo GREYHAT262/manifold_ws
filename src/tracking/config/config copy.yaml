@@ -1,0 +1,49 @@
+rush:
+  k_v: 10
+  k_w: 5
+
+skip_front_points: 4 # 跳过前方点数
+emergency_brake_duration: 0.2 # 紧急刹车持续时间 (秒)
+# 控制参数
+T: 0.03 # 控制周期 (秒)
+Np_max: 50 # 最大预测步长
+Np_min: 10 # 最小预测步长
+Nc: 50 # 控制步长
+lookahead: 0 # 前视点数量
+
+# 横向误差控制参数
+lateral_control:
+  error_threshold: 0.05 # 横向误差阈值(米)，超过此值开始增加权重
+  error_gain: 10.0 # 横向误差增益系数，越大对误差越敏感
+  heading_threshold: 0.1 # 航向角误差阈值(弧度)，超过此值开始增加权重
+  heading_gain: 5.0 # 航向角误差增益系数，越大对误差越敏感
+
+# 速度控制参数（基于曲率）
+speed_control:
+  alpha: 15 # 曲率对速度的影响因子，越大弯道减速越明显
+  curvature_window: 5 # 曲率计算窗口大小
+  min_radius: 0.1 # 最小曲率半径(米)，用于限制最低速度
+
+# 控制限制
+control_limits:
+  v_min: -1 # 最小线速度 (m/s)
+  v_max: 1 # 最大线速度 (m/s)
+  omega_min: -2 # 最小角速度 (rad/s)
+  omega_max: 2 # 最大角速度 (rad/s)
+  a_min: -2 # 最小加速度 (m/s^2)
+  a_max: 2 # 最大加速度 (m/s^2)
+  alpha_min: -2.0 # 最小角加速度 (rad/s^2)
+  alpha_max: 2.0 # 最大角加速度 (rad/s^2)
+
+# 曲率控制参数
+curvature_sensitivity: 50.0 # 曲率对预测步长的影响程度，越大越敏感
+window_size: 13 # 预测窗口大小
+
+# MPC权重参数
+weights:
+  lateral: 500.0 # 横向误差权重
+  yaw: 100.0 # 航向角误差权重
+  velocity: 100.0 # 速度跟踪权重
+  longitudinal: 0.0 # 纵向误差权重（通常很小）
+
+control: true

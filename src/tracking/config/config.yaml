@@ -1,0 +1,32 @@
+rush:
+  k_v: 10
+  k_w: 5
+skip_front_points: 5 # 跳过前方点数
+
+# 基本控制参数
+T: 0.03 # 控制周期 (秒)
+emergency_brake_duration: 0.1 # 急停持续时间 (秒)
+
+# 纯跟踪控制器参数
+pure_pursuit:
+  look_ahead_distance: 1.0 # 基础前向距离 (米)
+  min_look_ahead: 0.5 # 最小前向距离 (米) 
+  max_look_ahead: 2.5 # 最大前向距离 (米)
+  k_look_ahead: 0.2 # 速度对前向距离的影响因子 (前向距离 = min_dist + k * 速度) # 0.4
+
+# 速度控制参数（基于曲率）
+speed_control:
+  alpha: 7.0 # 曲率对速度的影响因子，越大弯道减速越明显 # 20.0
+  curvature_window: 5 # 曲率计算窗口大小
+  min_radius: 0.1 # 最小曲率半径(米)，用于限制最低速度
+
+# 控制限制
+control_limits:
+  v_min: 0.1 # 最小线速度 (m/s), 通常设为正数以保持前进
+  v_max: 1.1 # 最大线速度 (m/s)
+  omega_min: -3.0 # 最小角速度 (rad/s) # -2.0
+  omega_max: 3.0 # 最大角速度 (rad/s) # 2.0
+  max_deceleration: 2  # 最大减速度 (m/s²)
+
+# 是否执行控制命令
+control: true

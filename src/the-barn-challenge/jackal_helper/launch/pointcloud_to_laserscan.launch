@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+    <remap from="cloud_in" to="/mid/points"/>
+    <remap from="scan" to="/front/scan"/>
+
+    <rosparam>
+      <!-- # 2. Coordinate Frame -->
+      target_frame: front_laser <!-- # Project points relative to the ground center -->
+      transform_tolerance: 0.1
+      min_height: -0.19       <!-- # IGNORE GROUND: Eradicates the orbits below 10cm -->
+      max_height: 1.0         <!-- # Only see obstacles up to 1m tall -->
+
+      <!-- # 3. Range Filtering -->
+      range_min: 0.1          <!-- # IGNORE ROBOT: Deletes noise hitting the chassis -->
+      range_max: 200.0         <!-- # Standard range for indoor navigation -->
+      use_inf: true           <!-- # If no hit, return infinity (cleaner for planners) -->
+
+      <!-- # 4. Laser Scan Properties -->
+      angle_min: -3.1415      <!-- # -180 degrees -->
+      angle_max: 3.1415       <!-- # 180 degrees -->
+      angle_increment: 0.0087 <!-- # 0.5 degrees resolution -->
+      scan_time: 0.1
+      concurrency_level: 1    <!-- # Process on a single thread to save CPU -->
+    </rosparam>
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_to_front" 
+      args="0.0 0 0.2 0 0 0 base_link front_laser 100" />
+</launch>

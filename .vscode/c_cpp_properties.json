@@ -1,0 +1,39 @@
+{
+  "configurations": [
+    {
+      "compileCommands": "${workspaceFolder}/compile_commands.json",
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/manifold_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/manifold_ws/src/eband_local_planner/include/**",
+        "/manifold_ws/src/grid_map/grid_map_core/include/**",
+        "/manifold_ws/src/grid_map/grid_map_costmap_2d/include/**",
+        "/manifold_ws/src/grid_map/grid_map_cv/include/**",
+        "/manifold_ws/src/grid_map/grid_map_demos/include/**",
+        "/manifold_ws/src/grid_map/grid_map_filters/include/**",
+        "/manifold_ws/src/grid_map/grid_map_loader/include/**",
+        "/manifold_ws/src/grid_map/grid_map_octomap/include/**",
+        "/manifold_ws/src/grid_map/grid_map_pcl/include/**",
+        "/manifold_ws/src/grid_map/grid_map_ros/include/**",
+        "/manifold_ws/src/grid_map/grid_map_rviz_plugin/include/**",
+        "/manifold_ws/src/grid_map/grid_map_sdf/include/**",
+        "/manifold_ws/src/grid_map/grid_map_visualization/include/**",
+        "/manifold_ws/src/local_map/include/**",
+        "/manifold_ws/src/obs_param/include/**",
+        "/manifold_ws/src/navigation/include/**",
+        "/manifold_ws/src/tracking/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
