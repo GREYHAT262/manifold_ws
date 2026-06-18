@@ -14,16 +14,16 @@ cd manifold_ws
 docker build -t barn:noetic .
 
 xhost +
-docker run -it   
-    --network host   
-    --name barn   
-    --gpus all   
-    --privileged   
-    --env DISPLAY=$DISPLAY   
-    --env QT_X11_NO_MITSHM=1   
-    --env NVIDIA_DRIVER_CAPABILITIES=all   
-    --env NVIDIA_VISIBLE_DEVICES=all   
-    -v /tmp/.X11-unix:/tmp/.X11-unix:rw   
+docker run -it \
+    --network host \
+    --name barn \
+    --gpus all \
+    --privileged \
+    --env DISPLAY=$DISPLAY \
+    --env QT_X11_NO_MITSHM=1 \
+    --env NVIDIA_DRIVER_CAPABILITIES=all \
+    --env NVIDIA_VISIBLE_DEVICES=all \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     barn:noetic 
 ```
 
