@@ -26,6 +26,13 @@ docker run -it \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     barn:noetic 
 ```
+## Permissions
+```
+chmod +x src/jackal/jackal_description/scripts/env_run
+chmod +x src/the-barn-challenge/jackal_helper/scripts/depth_colorizer.py
+chmod +x src/the-barn-challenge/jackal_helper/scripts/thick_cloud_node.py
+chmod +x src/navigation/src/odom_tf_broadcaster.py
+```
 
 ## Getting Started
 
